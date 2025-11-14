@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Welcome to CRUMB & Co.</title>
+    <style>
+        .big-text {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/">Home</a> |
+    <a href="/about">About Us</a> |
+    <a href="/contact">Contact Us</a> |
+    <a href="/inventory">Inventory</a> |
+    <a href="/dashboard">Dashboard</a> |
+
+    <span sec:authorize="isAuthenticated()">
+        <a href="/logout">Logout</a>
+    </span>
+    |
+    <span sec:authorize="!isAuthenticated()">
+        <a href="/login">Login</a>
+    </span>
+</nav>
+<hr>
+
+<h1>About Crumb & Co</h1>
+<p class="big-text">Founded in 1995 </p>
+<p class="big-text">
+    COME ENJOY THE BEST COOKIES IN TOWN!
+    <img src="https://previews.123rf.com/images/vasylbonchuk/vasylbonchuk2006/vasylbonchuk200600220/150307033-traditional-chocolate-chip-cookies-with-a-smile-and-eyes-vector-illustration.jpg"
+         alt="Smiling Cookie"
+         style="width:80px; height:auto; vertical-align:middle;">
+</p>
+<p><a href="/">Home</a></p>
+
+</body>
+</html>

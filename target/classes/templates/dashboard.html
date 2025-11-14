@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+    <style>
+
+        nav {
+            margin-bottom: 20px;
+        }
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+        .cookie-button {
+            background: url('https://img.freepik.com/premium-photo/cute-cartoon-heart-shaped-valentine-s-cookie-with-colorful-line-drawing_994764-193047.jpg') no-repeat center;
+            background-size: cover;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 8px solid Navy;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px black;
+            margin: 20px;
+            cursor: pointer;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            gap: 40px;
+        }
+        h1 {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/">Home</a> |
+    <a href="/about">About Us</a> |
+    <a href="/contact">Contact Us</a> |
+    <a href="/inventory">Inventory</a> |
+    <a href="/dashboard">Dashboard</a> |
+
+    <span sec:authorize="isAuthenticated()">
+        <a href="/logout">Logout</a>
+    </span>
+    |
+    <span sec:authorize="!isAuthenticated()">
+        <a href="/login">Login</a>
+    </span>
+</nav>
+<hr>
+
+
+<h1>Welcome!!! 😃</h1>
+
+
+<div class="button-container">
+    <form action="/" method="get">
+        <button class="cookie-button" type="submit">Check Inventory</button>
+    </form>
+    <form action="/cookie/add" method="get">
+        <button class="cookie-button" type="submit">Add Inventory</button>
+    </form>
+</div>
+
+</body>
+</html>
